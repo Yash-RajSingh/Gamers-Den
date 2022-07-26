@@ -1,64 +1,110 @@
 import styled from "styled-components";
+import { FilterTitle } from "../filter/filterElements";
 
 export const GameDataBody = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    /* border: 2px solid white; */
-    width: 92%;
-    margin: 0 auto;
-`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 92%;
+  margin: 0 auto;
+  @media (max-width: 720px) {
+    width: 95%;
+  }
+`;
 export const GameCard = styled.div`
-    width: 18rem;
-    margin-top: 5%;
-    background: var(--light-grey);
-    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
-`
+  width: 18rem;
+  margin-top: 5%;
+  background: var(--light-grey);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  @media (max-width: 720px) {
+    width: 45%;
+  }
+`;
 
 export const GameThumbnail = styled.img`
-    width: 100%;
-    border-radius: 0.25rem;
-    /* height: 13rem; */
-`
+  width: 100%;
+  border-radius: 0.25rem;
+`;
 
 export const GameData = styled.div`
-    width: 100%;
-    padding: 0.5rem;
-`
+  width: 100%;
+  padding: 0.5rem;
+`;
 
 export const GameTitle = styled.p`
-    color: var(--text-grey);
-    overflow: hidden;
-    height: 1.8rem;
-    margin-top: 1%;
-    font: 1.5rem 'aznLight';
-    font-weight: 0;
-`
+  color: var(--text-grey);
+  overflow: hidden;
+  height: 1.8rem;
+  margin-top: 1%;
+  font: 1.5rem "aznLight";
+  font-weight: 0;
+  @media (max-width: 720px) {
+    font-size: 1rem;
+    height: 1rem;
+  }
+`;
 export const GameDescription = styled.p`
-    color: var(--text-grey); 
-    /* border: 1px solid white; */
-    height: 5rem;
-    font: 0.8rem 'cVector';
-    letter-spacing: 1px;
-    margin-top: 3%;
-`
+  color: var(--text-grey);
+  height: 4rem;
+  /* font: 0.8rem "cVector"; */
+  font: 0.8rem "Roboto Slab";
+  letter-spacing: 1px;
+  margin-top: 3%;
+  margin-bottom: 1%;
+  @media (max-width: 720px) {
+    margin-top: 2%;
+    font-size: 0.6rem;
+    font-weight: 600;
+    height: 4.25rem;
+    margin-bottom: 2%;
+  }
+`;
 
 export const SubGameData = styled.div`
-    margin-top: auto;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    /* border: 2px solid pink; */
-`
+  margin-top: auto;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  @media (max-width: 720px) {
+    /* flex-direction: column; */
+    align-items: flex-start;
+  }
+`;
 export const GamePlatform = styled.span`
-    color: var(--text-grey);
-    background: var(--dark-grey);
-    border: 1px solid var(--grey);
-    border-radius: 0.3rem;
-    font: 0.8rem 'Roboto Slab';
-    padding: 0.3rem 0.7rem;
-`
-export const GameGenre = styled(GamePlatform)`
+  color: var(--text-grey);
+  background: var(--dark-grey);
+  border: 1px solid var(--grey);
+  border-radius: 0.3rem;
+  font: 0.8rem "Roboto Slab";
+  padding: 0.3rem 0.7rem;
+  @media (max-width: 720px) {
+    font-size: 0.5rem;
+  }
+`;
+export const GameGenre = styled(GamePlatform)``;
 
+export const SeeMore = styled.button`
+  border: 1px solid black;
+  border-radius: 0.25rem;
+  margin: 5% 45% 0 45%;
+  font: 1rem "Roboto Slab";
+  padding: 0.5rem 1rem;
+  letter-spacing: 1px;
+  background: var(--blue);
+  color: var(--white);
+  text-shadow: -1px 2px 0 rgb(0, 0, 0, 60%);
+  cursor: pointer;
+  @media (max-width: 720px) {
+    margin: 7% 0 0 35%;
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+  }
+`;
+
+export const LastMessage = styled(FilterTitle)`
+  text-align: center;
+  @media (max-width: 720px) {
+    margin-top: 10%;
+  }
 `

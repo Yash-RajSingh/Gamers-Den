@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useEffect, useContext } from "react";
 import { gameListContext } from "../context/context";
+import FilterFunction from "../filter/filter";
 import {
   GameDataBody,
   GameCard,
@@ -11,6 +12,8 @@ import {
   GamePlatform,
   GameData,
   GameGenre,
+  SeeMore,
+  LastMessage,
 } from "./landingElements";
 
 const GameCardComponent = ({
@@ -44,41 +47,43 @@ const GameCardComponent = ({
   );
 };
 
+const options = {
+  method: "GET",
+  headers: {
+    "X-RapidAPI-Key": process.env.REACT_APP_KEY,
+    "X-RapidAPI-Host": "free-to-play-games-database.p.rapidapi.com",
+  },
+};
+
 const Landing = () => {
+  const [show, setShow] = useState(true);
   const { gameList, setGameList } = useContext(gameListContext);
-  const [count, setCount] = useState(50)
+  const [gamesToDisplay, setGamesToDisplay] = useState();
+  const [count, setCount] = useState(24);
   useEffect(() => {
-    const options = {
-      method: "GET",
-      headers: {
-        "X-RapidAPI-Key": process.env.REACT_APP_KEY,
-        "X-RapidAPI-Host": "free-to-play-games-database.p.rapidapi.com",
-      },
-    };
     const GetGameData = async () => {
       const request = await fetch(
         "https://free-to-play-games-database.p.rapidapi.com/api/games",
         options
       );
       const response = await request.json();
-      console.log("=> ", response)
-      if (response.length !== null) {
-        setGameList(response);
-      }
+      setGameList(response);
+      setGamesToDisplay(response);
+      console.log(response)
     };
-    // console.log("=>", gameList)
     GetGameData();
   }, []);
 
   return (
     <>
+    <FilterFunction gameList={gameList} setGamesToDisplay={setGamesToDisplay} />
       <GameDataBody>
-        {gameList &&
-          gameList.map((current) => {
+        {gamesToDisplay &&
+          gamesToDisplay.slice(0, count).map((current, index) => {
             return (
               <>
                 <GameCardComponent
-                  key={current.id}
+                  key={index}
                   id={current.id}
                   thumbnail={current.thumbnail}
                   title={current.title}
@@ -91,6 +96,15 @@ const Landing = () => {
             );
           })}
       </GameDataBody>
+      <SeeMore style={{ display: show ? "block" : "none" }} onClick={()=> {
+        setCount(count+25)
+        console.log(count)
+        // if(count>348){
+        if(count >= gamesToDisplay.length){
+          setShow((show) => !show)
+        }
+        }}>See More</SeeMore>
+        <LastMessage style={{ display: show ? "none" : "block" }} >That's all for now!</LastMessage>
     </>
   );
 };

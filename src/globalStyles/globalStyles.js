@@ -1,14 +1,13 @@
 import { createGlobalStyle } from 'styled-components';
 import AznKnucklesTrialLight from "./FontFiles/AznKnucklesTrialLight.otf"
 import AznKnucklesTrialBold from "./FontFiles/AznKnucklesTrialBold.otf"
-import EvilEmpire from './FontFiles/EvilEmpire.ttf'
-import FrostbiteBossFight from './FontFiles/FrostbiteBossFight.ttf'
-import Tigerious from './FontFiles/Tigerious.otf'
+// import EvilEmpire from './FontFiles/EvilEmpire.ttf'
+// import FrostbiteBossFight from './FontFiles/FrostbiteBossFight.ttf'
+// import Tigerious from './FontFiles/Tigerious.otf'
 import ChargeVector from './FontFiles/ChargeVector.ttf'
-import Plaguard from './FontFiles/Plaguard.otf'
+// import Plaguard from './FontFiles/Plaguard.otf'
 
 export const GlobalSyle = createGlobalStyle`
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap');
 html {
     --brightest-red: #de0f10;
     --text-grey: #aaa;
@@ -22,24 +21,8 @@ html {
     background: var(--dark-grey);
   }
   @font-face {
-    font-family: 'playguard';
-    src: url(${Plaguard});
-  }
-  @font-face {
     font-family: 'cVector';
     src: url(${ChargeVector});
-  }
-  @font-face {
-    font-family: 'tigerious';
-    src: url(${Tigerious});
-  }
-  @font-face {
-    font-family: 'frostbite';
-    src: url(${FrostbiteBossFight});
-  }
-  @font-face {
-    font-family: 'evil';
-    src: url(${EvilEmpire});
   }
 
   @font-face {
