@@ -1,10 +1,14 @@
 import styled from "styled-components";
-import Soldier from '../../assets/group.png'
+// import Soldier from '../../assets/group.png'
 import { FooterTitle } from "../footer/footerelements";
 
 export const LoginTitle = styled(FooterTitle)`
-    font: 2rem 'evil' ;
+    font: 2rem 'Roboto Slab' ;
     margin: 2% 0 0 3%;
+    @media (max-width: 720px) {
+    font-size: 1rem;
+    margin-top: 5%;
+  }
 `
 // export const LoginBody = styled.div`
 //     background-image: url(${Soldier});
@@ -34,11 +38,15 @@ export const DisplayImage = styled.img`
 
 
 export const LoginBody = styled.div`
+margin-top: 1.5%;
     width: 99vw;
     /* border: 1px solid white; */
     display: flex;
     flex-wrap: wrap;
     /* justify-content: space-evenly; */
+    @media (max-width: 720px) {
+    flex-direction: column;
+  }
     `
 export const LoginForm = styled.form`
     display: flex;

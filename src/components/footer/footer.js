@@ -13,7 +13,7 @@ export const Footer = () => {
                          different platforms. Filter based on your preferences and take part in community discussions.
                     </FooterDescription>
                 </FooterWrapper>
-                <Copyright>© 2022 Gamers-Den, All rights reserved</Copyright>
+                <Copyright>© 2022 Gamers-Den</Copyright>
             </FooterBody>
         </>
     )

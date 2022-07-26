@@ -1,10 +1,12 @@
-import { LoginBody, LoginTitle, LoginDisplay,DisplayImage, Container, LoginForm, LoginHeader, Label, InputFields, LoginButton } from './loginElements'
+import { LoginBody, LoginTitle,DisplayImage, Container, LoginForm, LoginHeader, Label, InputFields, LoginButton } from './loginElements'
 import DP from '../../assets/sheSoldier.png'
 import { useState } from 'react';
 import FB from '../../firebase';
 import {getAuth, createUserWithEmailAndPassword} from 'firebase/auth'
 
 const Login = () => {
+    alert("This page along with its featuers are still in development. Kindly avoid using it untills its release.")
+
     const [email,setEmail] = useState()
     const [pass,setPass] = useState()
     const FireAuth = getAuth(FB)
@@ -41,7 +43,7 @@ const Login = () => {
 export default Login; 
 
 
-{/* <LoginBody>
+/* <LoginBody>
     <LoginDisplay>
         <Container>
             <LoginForm>
@@ -66,4 +68,4 @@ export default Login;
             </LoginForm>
         </Container>
     </LoginDisplay>
-</LoginBody> */}
+</LoginBody> */
