@@ -9,7 +9,7 @@ import DiscussionPage from './DiscussionsPage/DiscussionPage';
 
 const App = () => {
   const [news, setNews] = useState();
-  const [authenticated, setAuthenticated] = useState();
+  const [authenticated, setAuthenticated] = useState(false);
   return (
     <>
     <authContext.Provider value={{authenticated, setAuthenticated}} >

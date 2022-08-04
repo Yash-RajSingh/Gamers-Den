@@ -20,10 +20,9 @@ import { auth, db } from "../../firebase";
 import {
   collection,
   orderBy,
-  limit,
   query,
   addDoc,
-  serverTimestamp,
+  serverTimestamp
 } from "firebase/firestore";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import Profile from "../../assets/profile.png";
@@ -48,16 +47,15 @@ const Disscussion = () => {
   const MessageAreaRef = useRef();
   const EndRef = useRef();
   const messageRef = collection(db, "messages");
-  const q = query(messageRef, orderBy("createdAt"), limit(25));
-    const [messages] = useCollectionData(q, { idField: "id" });
-  const { uid, photoURL, displayName } = auth.currentUser;
+  const q = query(messageRef, orderBy("createdAt"));
+  const [messages] = useCollectionData(q, { idField: "id" });
   const sendMessage = async () => {
     await addDoc(messageRef, {
       createdAt: serverTimestamp(),
       message: MessageAreaRef.current.value,
-      photoURL,
-      uid,
-      displayName,
+      photoURL: auth.currentUser.photoURL,
+      uid: auth.currentUser.uid,
+      displayName: auth.currentUser.displayName
     });
     MessageAreaRef.current.value = "";
     EndRef.current?.scrollIntoView({ behavior: "smooth" });

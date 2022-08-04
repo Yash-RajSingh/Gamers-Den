@@ -5,21 +5,20 @@ import {
   NavLink,
   HamburgerIcon,
   DispayWrapper,
-  ProfileImage,
+  LogoutButton,
 } from "./headerElements";
-import { Link } from "react-router-dom";
-import { useEffect, useState, useContext } from "react";
-import { authContext } from "../../context/context";
-import { auth } from "../../firebase";
+import { Link, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 import Icon from "../../assets/hamburger.png";
-import Profile from "../../assets/profile.png";
-
+import { signOut } from "firebase/auth";
+import { auth } from "../../firebase";
 
 const Header = () => {
-  const { authenticated, setAuthenticated } = useContext(authContext);
   const [show, setShow] = useState(true);
   const [showLogin, setShowLogin] = useState(true);
+  let navigate = useNavigate()
   let param = window.location.href;
+  const IsLogged = sessionStorage.getItem("isauth");
   useEffect(() => {
     if (window.innerWidth > 720) {
       setShow(!show);
@@ -48,12 +47,24 @@ const Header = () => {
             <Link to="/news" style={{ textDecoration: "none" }}>
               <NavLink>News</NavLink>
             </Link>
-            {showLogin && (
-              <Link to="/login" style={{ textDecoration: "none",  display: authenticated ? "none" : "block"}}>
+            {IsLogged ? (
+              <LogoutButton onClick={(e)=>{
+                e.preventDefault();
+                signOut(auth);
+                sessionStorage.clear();
+                navigate('/')
+              }}>Logout</LogoutButton>
+            ) : (
+              <Link
+                to="/login"
+                style={{
+                  textDecoration: "none",
+                  display: showLogin ? "block" : "none",
+                }}
+              >
                 <NavLink>Login</NavLink>
               </Link>
             )}
-            {authenticated && <ProfileImage src={auth.currentUser.photoURL || Profile} />}
           </UserContainer>
         </DispayWrapper>
       </HeaderBody>
