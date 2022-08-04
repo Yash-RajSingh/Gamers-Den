@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { UserImage } from "../discussion/discussionElements";
+import { LoginButton } from "../login/loginElements";
 
 export const HeaderBody = styled.div`
   padding: 0.7rem 1rem 0.5rem 1rem;
@@ -8,7 +9,6 @@ export const HeaderBody = styled.div`
   display: flex;
   justify-content: space-between;
 `;
-
 
 export const Title = styled.h1`
   font: 3rem "aznLight";
@@ -67,5 +67,7 @@ export const HamburgerIcon = styled.img`
     display: block;
   }
 `;
-
-export const ProfileImage = styled(UserImage)``
+export const LogoutButton = styled(LoginButton)`
+  background: var(--blue);
+  cursor: pointer;
+`;

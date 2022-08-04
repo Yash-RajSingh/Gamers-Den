@@ -40,7 +40,8 @@ const Login = () => {
     )
       .then((result) => {
         console.log(result);
-        setAuthenticated(result);
+        setAuthenticated(true)
+        sessionStorage.setItem('isauth', true)
         navigate("/disscussion");
       })
       .catch((err) => {
@@ -56,7 +57,8 @@ const Login = () => {
     )
       .then((result) => {
         console.log(result);
-        setAuthenticated(result);
+        setAuthenticated(true)
+        sessionStorage.setItem('isauth', true)
         navigate("/disscussion");
       })
       .catch((err) => {
@@ -68,7 +70,8 @@ const Login = () => {
     signInWithPopup(auth, provider)
       .then((result) => {
         console.log(result);
-        setAuthenticated(result);
+        setAuthenticated(true)
+        sessionStorage.setItem('isauth', true)
         navigate("/disscussion");
       })
       .catch((error) => {
