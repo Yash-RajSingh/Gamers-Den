@@ -25,7 +25,7 @@ const NewsItem = (data) => {
   return (
     <>
       <NewsCard>
-        <NewsImage src={data.data.thumbnail} />
+        <NewsImage src={data.data.thumbnail} alt={data.data.title}/>
         <NewsDetails onClick={()=> window.open(`https://gamerant.com/${data.data.sourceLink}`)}>
             <NewsTitle>{data.data.title}</NewsTitle>
             <NewsDescription style={{ display: show ? "none" : "block" }}>{data.data.description}</NewsDescription>

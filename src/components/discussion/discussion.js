@@ -30,11 +30,12 @@ import Send from "../../assets/send.png";
 import { useRef } from "react";
 
 const ChatMessage = (data) => {
-  const Sender = data.data.uid === auth.currentUser.uid ? "sent" : "received";
+  const uuid = sessionStorage.getItem('uuid')
+  const Sender = data.data.uid === uuid ? "sent" : "received";
   return (
     <>
       <MessageBody id={data.data.uid} sender={Sender}>
-        <UserImage src={data.data.photoURL || Profile} />
+        <UserImage src={data.data.photoURL || Profile} alt="User Image"/>
         <MessageTextBody>
           <MessageText>{data.data.message}</MessageText>
         </MessageTextBody>

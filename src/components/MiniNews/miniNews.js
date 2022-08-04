@@ -39,7 +39,7 @@ const MiniNews = () => {
                       window.open(`https://gamerant.com/${element.sourceLink}`)
                     }
                   >
-                    <MiniNewsImage src={element.thumbnail} />
+                    <MiniNewsImage src={element.thumbnail} alt={`Article ${index}}`}/>
                     <MiniNewsTitle>{element.title}.</MiniNewsTitle>
                   </MiniNewsItem>
                 </>

@@ -2,12 +2,18 @@ import styled from "styled-components";
 
 export const LoginBody = styled.div`
   margin-top: 2%;
+  @media (max-width: 720px) {
+    margin-top: 5%;
+  }
 `;
 export const LoginTitle = styled.p`
   font-size: 2rem;
   font-family: "aznLight";
   color: var(--white);
   margin-left: 4%;
+  @media (max-width: 720px) {
+    font-size: 1.25rem;
+  }
 `;
 
 export const LoginContainer = styled.div`
@@ -15,10 +21,18 @@ export const LoginContainer = styled.div`
   align-items: center;
   justify-content: space-evenly;
   margin-top: 3%;
+  @media (max-width: 720px) {
+    flex-direction: column-reverse;
+  }
 `;
 
 export const GamerImage = styled.img`
   width: 45%;
+  @media (max-width: 720px) {
+    margin-top: 8%;
+    width: 70%;
+  }
+
 `;
 export const LoginWrapper = styled.div`
   width: 21rem;
@@ -26,6 +40,9 @@ export const LoginWrapper = styled.div`
   gap: 5%;
   overflow: hidden;
   align-items: flex-start;
+  @media (max-width: 720px) {
+    margin-top: 2%;
+  }
 `;
 
 export const LoginForm = styled.form`

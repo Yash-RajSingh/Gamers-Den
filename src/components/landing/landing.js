@@ -31,7 +31,7 @@ const GameCardComponent = ({
   return (
     <>
       <GameCard id={id} onClick={() => Redirect(link)}>
-        <GameThumbnail src={thumbnail} />
+        <GameThumbnail src={thumbnail} alt={title} />
         <GameData>
           <GameTitle>{title}</GameTitle>
           <GameDescription>
