@@ -1,71 +1,190 @@
-import { LoginBody, LoginTitle,DisplayImage, Container, LoginForm, LoginHeader, Label, InputFields, LoginButton } from './loginElements'
-import DP from '../../assets/sheSoldier.png'
-import { useState } from 'react';
-import FB from '../../firebase';
-import {getAuth, createUserWithEmailAndPassword} from 'firebase/auth'
+import {
+  FormInput,
+  GamerImage,
+  GoogleIcon,
+  GoogleLogin,
+  InputWrapper,
+  LoginBody,
+  LoginButton,
+  LoginContainer,
+  LoginForm,
+  LoginLabel,
+  LoginTitle,
+  LoginWrapper,
+} from "./loginElements";
+import Soldier3 from "../../assets/group.png";
+import Google from "../../assets/google.png";
+import { useState, useRef, useContext } from "react";
+import {
+  createUserWithEmailAndPassword,
+  signInWithPopup,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
+import { provider, auth } from "../../firebase";
+import { useNavigate } from "react-router-dom";
+import { authContext } from "../../context/context";
 
 const Login = () => {
-    alert("This page along with its featuers are still in development. Kindly avoid using it untills its release.")
+  const [show, setShow] = useState(false);
+  const LoginEmailRef = useRef();
+  const LoginPassRef = useRef();
+  const SignupEmailRef = useRef();
+  const SignupPassRef = useRef();
+  const { authenticated, setAuthenticated } = useContext(authContext);
+  let navigate = useNavigate();
+  const SignupWithEmail = () => {
+    createUserWithEmailAndPassword(
+      auth,
+      SignupEmailRef.current.value,
+      SignupPassRef.current.value
+    )
+      .then((result) => {
+        console.log(result);
+        setAuthenticated(result);
+        navigate("/disscussion");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
-    const [email,setEmail] = useState()
-    const [pass,setPass] = useState()
-    const FireAuth = getAuth(FB)
-    function loginUser() {
-        createUserWithEmailAndPassword(FireAuth, email, pass)
-        .then(res=>{
-            console.log(res)
-        })
-        .catch(err=>{console.log(err)})
-    }
-    return (<>
-        <LoginTitle>Join the faternity of gamers today!</LoginTitle>
-        <LoginBody>
-            <Container style={{display:"flex", justifyContent:"center"}}>
-                <DisplayImage src={DP}/>
-            </Container>
-            <Container>
-                <LoginForm>
-                <LoginHeader>Login</LoginHeader>
-                        <div>
-                            <Label>Email</Label>
-                            <InputFields type='email' placeholder='Enter Your E-mail' value={email} onChange={(e)=>setEmail(e.target.value)} />
-                            <Label>Password</Label>
-                            <InputFields type='password' placeholder='Enter Your Password' value={pass} onChange={(e)=>setPass(e.target.value)} />
-                        </div>
-                        <LoginButton type='button' onClick={loginUser}>Login</LoginButton>
-                </LoginForm>
-            </Container>
-        </LoginBody>
+  const LoginWithEmail = () => {
+    signInWithEmailAndPassword(
+      auth,
+      LoginEmailRef.current.value,
+      LoginPassRef.current.value
+    )
+      .then((result) => {
+        console.log(result);
+        setAuthenticated(result);
+        navigate("/disscussion");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
-    </>);
-}
+  const SignInWithGoogle = () => {
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        console.log(result);
+        setAuthenticated(result);
+        navigate("/disscussion");
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
 
-export default Login; 
-
-
-/* <LoginBody>
-    <LoginDisplay>
-        <Container>
-            <LoginForm>
-                <LoginHeader>Login</LoginHeader>
-                <div>
-                    <Label>Email</Label>
-                    <InputFields type='email' placeholder='Enter Your E-mail' />
-                    <Label>Password</Label>
-                    <InputFields type='password' placeholder='Enter Your Password' />
-                </div>
-                <LoginButton type='submit'>Login</LoginButton>
+  return (
+    <>
+      <LoginBody>
+        <LoginTitle>Join the faternity of gamers</LoginTitle>
+        <LoginContainer>
+          <GamerImage src={Soldier3} />
+          <LoginWrapper>
+            <LoginForm style={{ marginLeft: show ? "-21rem" : "0" }}>
+              <InputWrapper style={{ textAlign: "center", margin: "2% auto" }}>
+                <LoginLabel>Don't have an account?</LoginLabel>
+                <LoginButton
+                  style={{ marginTop: "5%" }}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setShow(!show);
+                  }}
+                >
+                  SignUp
+                </LoginButton>
+              </InputWrapper>
+              <InputWrapper>
+                <LoginLabel>E-mail</LoginLabel>
+                <FormInput
+                  ref={LoginEmailRef}
+                  type={"email"}
+                  placeholder={"Enter your email"}
+                />
+              </InputWrapper>
+              <InputWrapper>
+                <LoginLabel>Password</LoginLabel>
+                <FormInput
+                  ref={LoginPassRef}
+                  type={"password"}
+                  placeholder={"Enter your password"}
+                />
+              </InputWrapper>
+              <InputWrapper style={{ textAlign: "center", marginTop: "10%" }}>
+                <LoginButton
+                  onClick={(e) => {
+                    e.preventDefault();
+                    LoginWithEmail();
+                  }}
+                >
+                  Login
+                </LoginButton>
+                <GoogleLogin
+                  onClick={(e) => {
+                    e.preventDefault();
+                    SignInWithGoogle();
+                  }}
+                >
+                  <GoogleIcon src={Google} /> Login With Google
+                </GoogleLogin>
+              </InputWrapper>
             </LoginForm>
-        </Container>
-        <Container>
+
             <LoginForm>
-                <LoginHeader>Signup</LoginHeader>
-                <Label>Email</Label>
-                <InputFields type='email' placeholder='Enter Your E-mail' />
-                <Label>Password</Label>
-                <InputFields type='password' placeholder='Enter Your Password' />
-                <LoginButton type='submit'>Signup</LoginButton>
+              <InputWrapper style={{ textAlign: "center", margin: "2% auto" }}>
+                <LoginLabel>Already have an account?</LoginLabel>
+                <LoginButton
+                  style={{ marginTop: "5%" }}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setShow(!show);
+                  }}
+                >
+                  Login
+                </LoginButton>
+              </InputWrapper>
+              <InputWrapper>
+                <LoginLabel>E-mail</LoginLabel>
+                <FormInput
+                  ref={SignupEmailRef}
+                  type={"email"}
+                  placeholder={"Enter your email"}
+                />
+              </InputWrapper>
+              <InputWrapper>
+                <LoginLabel>Password</LoginLabel>
+                <FormInput
+                  ref={SignupPassRef}
+                  type={"password"}
+                  placeholder={"Enter your password"}
+                />
+              </InputWrapper>
+              <InputWrapper style={{ textAlign: "center", marginTop: "10%" }}>
+                <LoginButton
+                  onClick={(e) => {
+                    e.preventDefault();
+                    SignupWithEmail();
+                  }}
+                >
+                  Signup
+                </LoginButton>
+                <GoogleLogin
+                  onClick={(e) => {
+                    e.preventDefault();
+                    SignInWithGoogle();
+                  }}
+                >
+                  <GoogleIcon src={Google} /> Signup With Google
+                </GoogleLogin>
+              </InputWrapper>
             </LoginForm>
-        </Container>
-    </LoginDisplay>
-</LoginBody> */
+          </LoginWrapper>
+        </LoginContainer>
+      </LoginBody>
+    </>
+  );
+};
+
+export default Login;

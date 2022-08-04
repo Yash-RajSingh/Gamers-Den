@@ -10,7 +10,7 @@ import {
   CarouselDetails,
   ItemGenre
 } from "./carouselElements";
-import { gameListContext } from "../context/context";
+import { gameListContext } from "../../context/context";
 import { useContext, useRef, useState, useEffect } from "react";
 import { FilterTitle } from "../filter/filterElements";
 

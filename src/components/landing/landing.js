@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useEffect, useContext } from "react";
-import { gameListContext } from "../context/context";
+import { gameListContext } from "../../context/context";
 import FilterFunction from "../filter/filter";
 import {
   GameDataBody,

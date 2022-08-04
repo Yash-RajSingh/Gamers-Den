@@ -1,5 +1,5 @@
 import { useContext, useState, useEffect } from "react";
-import { newsContext } from "../context/context";
+import { newsContext } from "../../context/context";
 import { LastMessage } from "../landing/landingElements";
 import {
     NewsAuthors,

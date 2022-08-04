@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { UserImage } from "../discussion/discussionElements";
 
 export const HeaderBody = styled.div`
   padding: 0.7rem 1rem 0.5rem 1rem;
@@ -66,3 +67,5 @@ export const HamburgerIcon = styled.img`
     display: block;
   }
 `;
+
+export const ProfileImage = styled(UserImage)``
