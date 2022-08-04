@@ -1,5 +1,5 @@
 import { useEffect, useContext } from "react";
-import { newsContext } from "../context/context";
+import { newsContext } from "../../context/context";
 import {
   MiniNewsContainer,
   MiniNewsHeading,

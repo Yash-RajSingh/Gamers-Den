@@ -1,7 +1,7 @@
 import Loader from "../../components/loader/loader";
 import { Layout } from "../../components/layout/layout";
 import Landing from "../../components/landing/landing";
-import { gameListContext } from "../../components/context/context";
+import { gameListContext } from "../../context/context";
 import { useState } from "react";
 import GameCarousel from "../../components/carousel/carousel";
 import styled from "styled-components";
@@ -21,15 +21,13 @@ const HomePage = () => {
   return (
     <gameListContext.Provider value={{ gameList, setGameList }}>
       <Loader />
-      <div>
-        <Layout>
-          <MainWrapper>
-            <GameCarousel />
-            <MiniNews />
-          </MainWrapper>
-          <Landing />
-        </Layout>
-      </div>
+      <Layout>
+        <MainWrapper>
+          <GameCarousel />
+          <MiniNews />
+        </MainWrapper>
+        <Landing />
+      </Layout>
     </gameListContext.Provider>
   );
 };

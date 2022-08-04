@@ -1,11 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 import AznKnucklesTrialLight from "./FontFiles/AznKnucklesTrialLight.otf"
 import AznKnucklesTrialBold from "./FontFiles/AznKnucklesTrialBold.otf"
-// import EvilEmpire from './FontFiles/EvilEmpire.ttf'
-// import FrostbiteBossFight from './FontFiles/FrostbiteBossFight.ttf'
-// import Tigerious from './FontFiles/Tigerious.otf'
 import ChargeVector from './FontFiles/ChargeVector.ttf'
-// import Plaguard from './FontFiles/Plaguard.otf'
 
 export const GlobalSyle = createGlobalStyle`
 html {
@@ -20,6 +16,11 @@ html {
   body{
     background: var(--dark-grey);
   }
+  *{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
   @font-face {
     font-family: 'cVector';
     src: url(${ChargeVector});
@@ -46,7 +47,7 @@ html {
 }
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: darkcyan;
+  background: cyan;
 }
 
 `
