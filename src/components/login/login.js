@@ -42,6 +42,7 @@ const Login = () => {
         console.log(result);
         setAuthenticated(true)
         sessionStorage.setItem('isauth', true)
+        sessionStorage.setItem('uuid', `${auth.currentUser.uid}`);
         navigate("/disscussion");
       })
       .catch((err) => {
@@ -59,6 +60,7 @@ const Login = () => {
         console.log(result);
         setAuthenticated(true)
         sessionStorage.setItem('isauth', true)
+        sessionStorage.setItem('uuid', `${auth.currentUser.uid}`);
         navigate("/disscussion");
       })
       .catch((err) => {
@@ -72,6 +74,7 @@ const Login = () => {
         console.log(result);
         setAuthenticated(true)
         sessionStorage.setItem('isauth', true)
+        sessionStorage.setItem('uuid', `${auth.currentUser.uid}`);
         navigate("/disscussion");
       })
       .catch((error) => {
@@ -84,7 +87,7 @@ const Login = () => {
       <LoginBody>
         <LoginTitle>Join the faternity of gamers</LoginTitle>
         <LoginContainer>
-          <GamerImage src={Soldier3} />
+          <GamerImage src={Soldier3} alt="Gamer Image"/>
           <LoginWrapper>
             <LoginForm style={{ marginLeft: show ? "-21rem" : "0" }}>
               <InputWrapper style={{ textAlign: "center", margin: "2% auto" }}>

@@ -18,7 +18,7 @@ const Item = ({ data }) => {
   return (
     <>
       <CarouselItem>
-        <CarouselImage src={data.thumbnail} />
+        <CarouselImage src={data.thumbnail} alt={data.title} />
         <CarouselDetails>
           <CarouselTitle>{data.title}</CarouselTitle>
           <ItemDescription>{data.short_description}</ItemDescription>

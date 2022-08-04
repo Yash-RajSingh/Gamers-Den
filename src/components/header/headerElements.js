@@ -70,4 +70,9 @@ export const HamburgerIcon = styled.img`
 export const LogoutButton = styled(LoginButton)`
   background: var(--blue);
   cursor: pointer;
+  @media (max-width: 720px) {
+    width: 20%;
+    margin-left: auto;
+    margin-right: 4%;
+  }
 `;
