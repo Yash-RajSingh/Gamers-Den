@@ -1,5 +1,9 @@
+<div align="center">
 
 # Gamers Den
+
+</div>
+
 A website that lists out information about popular games, trending gaming news along with a community chat feature.
 
 ## Tech Stack
