@@ -43,7 +43,7 @@ const Login = () => {
         setAuthenticated(true)
         sessionStorage.setItem('isauth', true)
         sessionStorage.setItem('uuid', `${auth.currentUser.uid}`);
-        navigate("/disscussion");
+        navigate("/discussion");
       })
       .catch((err) => {
         console.log(err);
@@ -61,7 +61,7 @@ const Login = () => {
         setAuthenticated(true)
         sessionStorage.setItem('isauth', true)
         sessionStorage.setItem('uuid', `${auth.currentUser.uid}`);
-        navigate("/disscussion");
+        navigate("/discussion");
       })
       .catch((err) => {
         console.log(err);
@@ -75,7 +75,7 @@ const Login = () => {
         setAuthenticated(true)
         sessionStorage.setItem('isauth', true)
         sessionStorage.setItem('uuid', `${auth.currentUser.uid}`);
-        navigate("/disscussion");
+        navigate("/discussion");
       })
       .catch((error) => {
         console.error(error);

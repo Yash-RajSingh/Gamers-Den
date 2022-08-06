@@ -48,12 +48,17 @@ const Header = () => {
               <NavLink>News</NavLink>
             </Link>
             {IsLogged ? (
+              <>
+            <Link to="/discussion" style={{ textDecoration: "none" }}>
+              <NavLink>discussions</NavLink>
+            </Link>
               <LogoutButton onClick={(e)=>{
                 e.preventDefault();
                 signOut(auth);
                 sessionStorage.clear();
                 navigate('/')
               }}>Logout</LogoutButton>
+              </>
             ) : (
               <Link
                 to="/login"

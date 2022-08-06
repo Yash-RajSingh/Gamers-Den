@@ -24,7 +24,7 @@ export const UserContainer = styled.div`
   display: flex;
   width: fit-content;
   gap: 5%;
-  margin-right: 5%;
+  margin-right: 2rem;
   @media (max-width: 720px) {
     z-index: 10;
     position: absolute;
@@ -69,6 +69,8 @@ export const HamburgerIcon = styled.img`
 `;
 export const LogoutButton = styled(LoginButton)`
   background: var(--blue);
+  margin-right: 4%;
+  position: static;
   cursor: pointer;
   @media (max-width: 720px) {
     width: 20%;
