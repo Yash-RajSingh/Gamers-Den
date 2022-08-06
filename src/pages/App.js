@@ -30,7 +30,7 @@ const App = () => {
             element={ <NewsPage /> }
             />
           <Route
-            path="/disscussion"
+            path="/discussion"
             element={ <DiscussionPage />}
             />
         </Routes>

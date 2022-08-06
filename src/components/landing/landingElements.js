@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { FilterTitle } from "../filter/filterElements";
-
 export const GameDataBody = styled.div`
   display: flex;
   flex-wrap: wrap;
