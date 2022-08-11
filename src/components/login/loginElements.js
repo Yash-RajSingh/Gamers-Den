@@ -91,6 +91,7 @@ export const LoginButton = styled.button`
   outline: none;
   border: 0.5px solid rgb(0, 0, 0, 1);
   border-radius: 0.2rem;
+  cursor: pointer;
 `;
 export const GoogleLogin = styled.div`
   background: var(--white);

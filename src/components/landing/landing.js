@@ -29,10 +29,10 @@ const GameCardComponent = ({
   };
   return (
     <>
-      <GameCard id={id} onClick={() => Redirect(link)}>
+      <GameCard id={id} >
         <GameThumbnail src={thumbnail} alt={title} />
         <GameData>
-          <GameTitle>{title}</GameTitle>
+          <GameTitle onClick={() => Redirect(link)}>{title}</GameTitle>
           <GameDescription>
             {`${description.substring(0, 100)}....`}
           </GameDescription>

@@ -6,6 +6,7 @@ import {newsContext, authContext} from '../context/context'
 import { useState } from "react";
 import NewsPage from './NewsPage/NewsPage';
 import DiscussionPage from './DiscussionsPage/DiscussionPage';
+import Error404 from '../components/error404/error404';
 
 const App = () => {
   const [news, setNews] = useState();
@@ -32,6 +33,10 @@ const App = () => {
           <Route
             path="/discussion"
             element={ <DiscussionPage />}
+            />
+          <Route 
+            path="*"
+            element={ <Error404 />}
             />
         </Routes>
       </Router>
