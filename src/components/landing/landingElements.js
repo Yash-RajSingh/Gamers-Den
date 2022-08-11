@@ -36,6 +36,7 @@ export const GameTitle = styled.p`
   height: 1.8rem;
   margin-top: 1%;
   font: 1.5rem "aznLight";
+  cursor: pointer;
   font-weight: 0;
   @media (max-width: 720px) {
     font-size: 1rem;
