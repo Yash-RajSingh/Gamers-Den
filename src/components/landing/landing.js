@@ -34,7 +34,7 @@ const GameCardComponent = ({
         <GameData>
           <GameTitle onClick={() => Redirect(link)}>{title}</GameTitle>
           <GameDescription>
-            {`${description.substring(0, 100)}....`}
+            {description}
           </GameDescription>
           <SubGameData>
             <GamePlatform> {platform}</GamePlatform>
