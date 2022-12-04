@@ -45,17 +45,24 @@ export const GameTitle = styled.p`
 `;
 export const GameDescription = styled.p`
   color: var(--text-grey);
-  height: 4rem;
+  height: 2rem;
   /* font: 0.8rem "cVector"; */
   font: 0.8rem "Roboto Slab";
   letter-spacing: 1px;
   margin-top: 3%;
-  margin-bottom: 1%;
+  margin-bottom: 5%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* number of lines to show */
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+
   @media (max-width: 720px) {
     margin-top: 2%;
     font-size: 0.6rem;
     font-weight: 600;
-    height: 4.25rem;
+    height: 1.75rem;
     margin-bottom: 2%;
   }
 `;

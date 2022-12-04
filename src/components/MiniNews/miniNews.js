@@ -16,9 +16,7 @@ const MiniNews = () => {
   let navigate = useNavigate();
   useEffect(() => {
     const getNews = async () => {
-      const request = await fetch(
-        "https://gamers-den-news.herokuapp.com/gameNews"
-      );
+      const request = await fetch("https://game-newsapi.vercel.app/gameNews");
       const response = await request.json();
       setNews(response);
     };
